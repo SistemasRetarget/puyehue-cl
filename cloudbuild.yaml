@@ -9,7 +9,7 @@ steps:
       - '--build-arg'
       - 'DATABASE_URL=file:./payload.db'
       - '--build-arg'
-      - 'NEXT_PUBLIC_SITE_URL=https://puyehue-web-270024878418.europe-west1.run.app'
+      - 'NEXT_PUBLIC_SITE_URL=https://puyehue-web-201530409487.europe-west1.run.app'
       - '.'
 
   - name: 'gcr.io/cloud-builders/docker'

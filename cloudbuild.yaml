@@ -3,7 +3,7 @@ steps:
     args:
       - 'build'
       - '-t'
-      - 'europe-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/puyehue/puyehue-web:$COMMIT_SHA'
+      - 'europe-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/puyehue/puyehue-web:latest'
       - '--build-arg'
       - 'PAYLOAD_SECRET=puyehue-secret-change-me'
       - '--build-arg'
@@ -15,7 +15,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'europe-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/puyehue/puyehue-web:$COMMIT_SHA'
+      - 'europe-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/puyehue/puyehue-web:latest'
 
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
@@ -23,7 +23,7 @@ steps:
       - 'run'
       - 'deploy'
       - 'puyehue-web'
-      - '--image=europe-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/puyehue/puyehue-web:$COMMIT_SHA'
+      - '--image=europe-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/puyehue/puyehue-web:latest'
       - '--region=europe-west1'
       - '--platform=managed'
       - '--allow-unauthenticated'
@@ -36,4 +36,4 @@ steps:
       - '--update-secrets=PAYLOAD_SECRET=puyehue-payload-secret:latest,DATABASE_URL=puyehue-db-url:latest'
 
 images:
-  - 'europe-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/puyehue/puyehue-web:$COMMIT_SHA'
+  - 'europe-west1-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/puyehue/puyehue-web:latest'

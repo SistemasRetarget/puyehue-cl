@@ -8,57 +8,37 @@ type Feature = {
 
 const FEATURES_ES: Feature[] = [
   {
-    title: "Inmersión en la naturaleza",
-    text: "La cordillera no es un paisaje: es nuestra inspiración.",
-    img: "https://puebloladehesa.cl/cdn/shop/files/amplios_horizontes_1.webp"
+    title: "Termas Naturales",
+    text: "Aguas termales con propiedades terapéuticas para relajación y bienestar.",
+    img: "https://images.unsplash.com/photo-1544161515-81aae3ff8b47?w=600&h=400&fit=crop"
   },
   {
-    title: "Ubicación",
-    text: "Cerca de todo, envuelta en silencio.",
-    img: "https://puebloladehesa.cl/cdn/shop/files/Locacion_AEREA_1_1_38dd9d39-992c-4897-9b6f-cd9711ae23fb.webp"
+    title: "Parque Nacional",
+    text: "Ubicado en el corazón del Parque Nacional Puyehue con vistas al volcán.",
+    img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop"
   },
   {
-    title: "Seguridad y confianza",
-    text: "Tu bienestar es nuestra prioridad.",
-    img: "https://puebloladehesa.cl/cdn/shop/files/seguridad_y_confianza_07A9597_1_bb4787db-6cd4-46f1-a31f-d924fa2a12d8.webp"
-  },
-  {
-    title: "Arriendo flexible",
-    text: "Libertad para vivir a tu ritmo.",
-    img: "https://puebloladehesa.cl/cdn/shop/files/Arriendo_flexible_y_sin_ataduras_07A0374_1_1_9e1c59b4-d381-446d-aa82-afe0d283b9c7.webp"
-  },
-  {
-    title: "Vida en comunidad",
-    text: "Creemos en el valor de compartir.",
-    img: "https://puebloladehesa.cl/cdn/shop/files/07A1871_870b59a3-cea5-46af-a04f-16711cf0bdd6_1.webp"
+    title: "Bienestar Integral",
+    text: "Spa, masajes, gastronomía y actividades para una experiencia completa.",
+    img: "https://images.unsplash.com/photo-1540575467063-178f50002cbc?w=600&h=400&fit=crop"
   }
 ];
 
 const FEATURES_EN: Feature[] = [
   {
-    title: "Immersed in nature",
-    text: "The Andes are not a view: they are our inspiration.",
-    img: "https://puebloladehesa.cl/cdn/shop/files/amplios_horizontes_1.webp"
+    title: "Natural Hot Springs",
+    text: "Thermal waters with therapeutic properties for relaxation and wellness.",
+    img: "https://images.unsplash.com/photo-1544161515-81aae3ff8b47?w=600&h=400&fit=crop"
   },
   {
-    title: "Location",
-    text: "Close to everything, surrounded by silence.",
-    img: "https://puebloladehesa.cl/cdn/shop/files/Locacion_AEREA_1_1_38dd9d39-992c-4897-9b6f-cd9711ae23fb.webp"
+    title: "National Park",
+    text: "Located in the heart of Puyehue National Park with volcano views.",
+    img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop"
   },
   {
-    title: "Safety & trust",
-    text: "Your wellbeing is our priority.",
-    img: "https://puebloladehesa.cl/cdn/shop/files/seguridad_y_confianza_07A9597_1_bb4787db-6cd4-46f1-a31f-d924fa2a12d8.webp"
-  },
-  {
-    title: "Flexible stays",
-    text: "Live at your own pace.",
-    img: "https://puebloladehesa.cl/cdn/shop/files/Arriendo_flexible_y_sin_ataduras_07A0374_1_1_9e1c59b4-d381-446d-aa82-afe0d283b9c7.webp"
-  },
-  {
-    title: "Community",
-    text: "We believe in sharing.",
-    img: "https://puebloladehesa.cl/cdn/shop/files/07A1871_870b59a3-cea5-46af-a04f-16711cf0bdd6_1.webp"
+    title: "Integral Wellness",
+    text: "Spa, massages, gastronomy and activities for a complete experience.",
+    img: "https://images.unsplash.com/photo-1540575467063-178f50002cbc?w=600&h=400&fit=crop"
   }
 ];
 

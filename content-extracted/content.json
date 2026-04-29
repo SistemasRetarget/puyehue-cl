@@ -326,30 +326,6 @@
       {
         "tag": "h3",
         "class": "multi-column__grid-item-heading ff-heading fs-heading-4-base",
-        "text": "Creemos en el valor de compartir"
-      },
-      {
-        "tag": "h2",
-        "class": "image-with-text__text-container-heading ff-heading fs-heading-1-base section-blocks__heading",
-        "text": "Un lugar para quedarte el tiempo que necesites"
-      },
-      {
-        "tag": "p",
-        "class": "",
-        "text": "Arriendo de casas amobladas integradas al paisaje, con luz natural y vistas a la cordillera."
-      },
-      {
-        "tag": "br",
-        "class": "",
-        "text": "Como en todo pueblo, hay un punto de encuentro: La Casita, un espacio para un café, algo rico para comer, para trabajar con calma o simplemente cruzarse con otros de manera natural."
-      },
-      {
-        "tag": "br",
-        "class": "",
-        "text": "Con un equipo atento, arriendo flexible y una ubicación privilegiada —cerca de todo, envuelta en silencio— Pueblo propone una forma de vivir simple, conectada y tranquila desde el primer día."
-      },
-      {
-        "tag": "h2",
         "class": "rich-text__heading ff-heading fs-heading-2-base section-blocks__heading",
         "text": "Espacios para quedarse"
       },

@@ -9,20 +9,20 @@ import Features from "@/components/sections/Features";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Puyehue | Refugios de Montaña en Puyehue, Región de Los Lagos",
-  description: "Descubre refugios rodeados de naturaleza en Puyehue. Diseño, calma y montaña en el corazón de la Región de Los Lagos. Conoce nuestras propiedades exclusivas.",
-  keywords: "refugios Puyehue, cabañas Los Lagos, turismo naturaleza, montaña Puyehue, arriendo cabañas",
+  title: "Bienvenido a Puyehue – Tu Viaje Comienza Aquí | Hotel Termas",
+  description: "Disfruta de unas vacaciones únicas en Hotel Termas de Puyehue. Descansa en las mejores termas con la belleza del Parque Nacional Puyehue.",
+  keywords: "termas Puyehue, hotel termas, Parque Nacional Puyehue, vacaciones naturaleza, spa wellness, alojamiento Puyehue",
   openGraph: {
-    title: "Puyehue | Refugios de Montaña en Puyehue",
-    description: "Refugios rodeados de naturaleza, diseño y calma en Puyehue.",
+    title: "Bienvenido a Puyehue – Hotel Termas de Puyehue",
+    description: "Termas naturales, alojamiento de lujo y bienestar en el Parque Nacional Puyehue.",
     type: "website",
     locale: "es_CL",
     url: "https://puyehue.cl"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Puyehue | Refugios de Montaña en Puyehue",
-    description: "Refugios rodeados de naturaleza, diseño y calma en Puyehue."
+    title: "Bienvenido a Puyehue – Hotel Termas",
+    description: "Termas naturales y bienestar en el Parque Nacional Puyehue."
   }
 };
 
@@ -37,28 +37,28 @@ export default function Home() {
       <section className="relative h-[90vh] min-h-[600px] overflow-hidden -mt-20 lg:-mt-24">
         <img
           src={heroImg}
-          alt="Puyehue"
+          alt="Hotel Termas de Puyehue"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/40" />
         <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6">
           <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-light tracking-tight">
-            Tu refugio en la montaña
+            Bienvenido a Puyehue
           </h1>
           <p className="mt-4 text-base md:text-lg max-w-2xl opacity-95">
-            Refugios amoblados inmersos en la naturaleza con vistas al volcán Puyehue y al lago Puyehue.
+            Disfruta de unas vacaciones únicas en Hotel Termas de Puyehue. Descansa en las mejores termas con la belleza del Parque Nacional Puyehue.
           </p>
         </div>
       </section>
 
-      {/* SECTION 2: Rich text — narrativa de marca (matches prod section 3) */}
+      {/* SECTION 2: Rich text — narrativa de marca */}
       <section className="py-section bg-brand-soft">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-brand-ink leading-tight">
-            Puyehue nace de la idea de volver a lo esencial.
+            Termas Naturales en el Corazón de la Naturaleza
           </h2>
           <p className="mt-6 text-brand-muted leading-relaxed text-lg">
-            Un lugar donde la naturaleza, el diseño y la calma se cruzan para crear un nuevo sentido de habitar la montaña. Aquí cada refugio se piensa como un espacio integrado al entorno, con el volcán como horizonte y el ritmo del lago como telón de fondo.
+            Hotel Termas de Puyehue es tu destino perfecto para descansar y renovarte. Ubicado en el Parque Nacional Puyehue, ofrecemos aguas termales naturales, alojamiento de lujo y una experiencia integral de bienestar rodeado de naturaleza.
           </p>
         </div>
       </section>
@@ -69,13 +69,16 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-6 py-24">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="font-serif text-4xl md:text-5xl mb-6 font-light">Un lugar para quedarte el tiempo que necesites</h2>
+            <h2 className="font-serif text-4xl md:text-5xl mb-6 font-light">Nuestros Servicios</h2>
             <div className="space-y-5 text-brand-muted leading-relaxed text-lg">
               <p>
-                Arriendo de refugios amoblados integrados al paisaje, con luz natural y vistas al volcán Puyehue.
+                <strong>Alojamiento de Lujo:</strong> Cabañas, habitaciones y suites con vistas al Parque Nacional Puyehue.
               </p>
               <p>
-                Como en todo refugio de montaña, hay un punto de encuentro: La Cabaña, un espacio para un café, algo rico para comer, para trabajar con calma o simplemente cruzarse con otros de manera natural.
+                <strong>Spa & Wellness:</strong> Aguas termales naturales, masajes, tratamientos terapéuticos y relajación integral.
+              </p>
+              <p>
+                <strong>Actividades:</strong> Senderismo, observación de fauna, gastronomía local y experiencias de naturaleza.
               </p>
               <p>
                 Con un equipo atento, arriendo flexible y una ubicación privilegiada —cerca del parque nacional, envuelto en el bosque— Puyehue propone una forma de vivir simple, conectada y tranquila desde el primer día.

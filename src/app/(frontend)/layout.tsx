@@ -5,15 +5,15 @@ import ConsentBanner from "@/components/ConsentBanner";
 import JsonLd from "@/components/JsonLd";
 import { organizationSchema, localBusinessSchema } from "@/lib/schema";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://puebloladehesa.cl";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://puyehue.cl";
 
 export const metadata: Metadata = {
   title: {
-    default: "Pueblo La Dehesa · Tu refugio en la ciudad",
-    template: "%s · Pueblo La Dehesa"
+    default: "Hotel Termas de Puyehue Wellness & Spa Resort",
+    template: "%s | Hotel Termas de Puyehue"
   },
   description:
-    "Casas amobladas para estadías flexibles en La Dehesa, rodeadas de naturaleza, diseño y calma.",
+    "Vive tu experiencia termal en Hotel Termas de Puyehue. Wellness & Spa Resort en el Parque Nacional Puyehue.",
   alternates: {
     canonical: "/",
     languages: {
@@ -25,25 +25,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_CL",
-    siteName: "Pueblo La Dehesa",
-    title: "Pueblo La Dehesa · Tu refugio en la ciudad",
+    siteName: "Hotel Termas de Puyehue",
+    title: "Hotel Termas de Puyehue Wellness & Spa Resort",
     description:
-      "Casas amobladas para estadías flexibles en La Dehesa, rodeadas de naturaleza, diseño y calma.",
+      "Vive tu experiencia termal en el Parque Nacional Puyehue.",
     url: SITE_URL,
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Pueblo La Dehesa — vista de la cordillera"
+        alt: "Hotel Termas de Puyehue"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pueblo La Dehesa · Tu refugio en la ciudad",
+    title: "Hotel Termas de Puyehue Wellness & Spa Resort",
     description:
-      "Casas amobladas para estadías flexibles en La Dehesa, rodeadas de naturaleza, diseño y calma.",
+      "Vive tu experiencia termal en el Parque Nacional Puyehue.",
     images: ["/og-image.jpg"]
   },
   robots: {

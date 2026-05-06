@@ -1,13 +1,10 @@
 {
-  "timestamp": "2026-05-06T22:57:15.153Z",
+  "timestamp": "2026-05-06T23:09:56.102Z",
   "results": {
     "local": {
       "url": "http://localhost:3000",
-      "status": 200,
-      "size_bytes": 119935,
-      "load_time_ms": 949,
-      "title": "Hotel Termas de Puyehue Wellness & Spa Resort | Hotel Termas de Puyehue",
-      "timestamp": "2026-05-06T22:56:37.961Z"
+      "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"http://localhost:3000/\", waiting until \"networkidle\"\n",
+      "size_bytes": 0
     },
     "qa": {
       "url": "https://puyehue-cl-796867674754.europe-west1.run.app",
@@ -16,11 +13,8 @@
     },
     "prod": {
       "url": "https://puyehue.cl",
-      "status": 200,
-      "size_bytes": 127338,
-      "load_time_ms": 6831,
-      "title": "Bienvenido a Puyehue – Tu Viaje Comienza Aquí",
-      "timestamp": "2026-05-06T22:57:15.129Z"
+      "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://puyehue.cl/\", waiting until \"networkidle\"\n",
+      "size_bytes": 0
     }
   },
   "validation": {

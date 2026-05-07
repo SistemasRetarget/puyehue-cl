@@ -1,242 +1,201 @@
 import type { Metadata } from "next";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
-  title: "Contacto | Pueblo La Dehesa",
-  description: "Contáctanos por WhatsApp o envíanos un mensaje. Santa Blanca 550, Lo Barnechea, Santiago. Estamos aquí para responder tus preguntas.",
-  keywords: "contacto Pueblo La Dehesa, WhatsApp, consultas propiedades, reservas",
+  title: "Contacto & Reservas | Hotel Termas de Puyehue",
+  description: "Contacta al Hotel Termas de Puyehue para reservas, consultas y más información. Estamos en el Parque Nacional Puyehue, Región de Los Lagos.",
+  keywords: "contacto Puyehue, reservas termas, Hotel Termas Puyehue contacto, reservar termas Puyehue",
   alternates: { canonical: "/contacto" },
   openGraph: {
-    title: "Contacto | Pueblo La Dehesa",
-    description: "Ponte en contacto con nosotros para más información sobre nuestras propiedades.",
+    title: "Contacto & Reservas | Hotel Termas de Puyehue",
+    description: "Reserva tu estadía o visita diaria en el Hotel Termas de Puyehue.",
     type: "website",
     locale: "es_CL",
-    url: "/contacto",
+    url: "https://puyehue.cl/contacto",
   },
 };
 
-export default async function Contacto({ searchParams }: { searchParams: Promise<{ ok?: string; error?: string }> }) {
+const CANALES = [
+  {
+    icon: "📞",
+    titulo: "Teléfono",
+    detalle: "+56 64 2 331 400",
+    sub: "Lunes a Domingo, 9:00 — 20:00",
+    href: "tel:+56642331400",
+    accion: "Llamar ahora",
+  },
+  {
+    icon: "💬",
+    titulo: "WhatsApp",
+    detalle: "+56 9 5000 0000",
+    sub: "Respuesta en menos de 1 hora",
+    href: "https://wa.me/56950000000",
+    accion: "Escribir por WhatsApp",
+  },
+  {
+    icon: "✉️",
+    titulo: "Email",
+    detalle: "reservas@puyehue.cl",
+    sub: "Confirmación en 24 horas hábiles",
+    href: "mailto:reservas@puyehue.cl",
+    accion: "Enviar correo",
+  },
+];
+
+export default async function Contacto({
+  searchParams,
+}: {
+  searchParams: Promise<{ ok?: string; error?: string }>;
+}) {
   const sp = await searchParams;
-  const wa = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "56984046200";
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative h-[40vh] min-h-[300px] overflow-hidden -mt-20 lg:-mt-24 bg-brand-ink">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-ink via-brand-accent/30 to-brand-ink" />
-        <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6 pt-20">
-          <p className="text-sm uppercase tracking-[0.3em] mb-4 opacity-90">Contacto</p>
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-light tracking-tight">
-            Estamos aquí para ayudarte
-          </h1>
-          <p className="mt-4 text-lg max-w-2xl opacity-95 font-light">
-            Si quieres conocer más detalles o coordinar una visita, escríbenos
-          </p>
+      {/* HERO */}
+      <section className="relative h-[50vh] min-h-[380px] overflow-hidden -mt-20 lg:-mt-24">
+        <img
+          src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1600&h=900&fit=crop"
+          alt="Hotel Termas de Puyehue"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
+        <div className="relative h-full flex items-end pb-16 px-6">
+          <div className="max-w-7xl mx-auto w-full">
+            <p className="text-xs uppercase tracking-[0.3em] text-white/70 mb-4">Estamos para ayudarte</p>
+            <h1 className="font-serif text-5xl md:text-6xl text-white font-light leading-tight">
+              Contacto & Reservas
+            </h1>
+          </div>
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 py-24">
-        <div className="grid md:grid-cols-3 gap-12">
-          {/* Form column - 2/3 */}
-          <div className="md:col-span-2">
-            <h2 className="font-serif text-3xl md:text-4xl font-light mb-8">
-              Envíanos un mensaje
-            </h2>
+      {/* CANALES */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-8 mb-20">
+            {CANALES.map((canal) => (
+              <div
+                key={canal.titulo}
+                className="border border-brand-line p-8 text-center hover:border-brand-accent transition-colors"
+              >
+                <div className="text-4xl mb-4">{canal.icon}</div>
+                <h3 className="font-serif text-xl font-light text-brand-ink mb-2">{canal.titulo}</h3>
+                <p className="text-brand-orange font-medium mb-1">{canal.detalle}</p>
+                <p className="text-xs text-brand-muted mb-6">{canal.sub}</p>
+                <a
+                  href={canal.href}
+                  className="inline-flex items-center justify-center px-6 py-3 border border-brand-accent text-brand-accent text-sm uppercase tracking-widest hover:bg-brand-accent hover:text-white transition-colors"
+                >
+                  {canal.accion}
+                </a>
+              </div>
+            ))}
+          </div>
+
+          {/* FORMULARIO */}
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="text-xs uppercase tracking-[0.3em] text-brand-accent mb-3">Formulario</p>
+              <h2 className="font-serif text-4xl font-light text-brand-ink">
+                Envíanos un mensaje
+              </h2>
+            </div>
 
             {sp.ok && (
-              <div role="status" className="mb-6 p-4 bg-green-50 text-green-800 border border-green-200 rounded-lg">
-                ✓ Gracias, hemos recibido tu mensaje. Te contactaremos pronto.
+              <div className="bg-green-50 border border-green-200 text-green-800 px-6 py-4 mb-8 text-center">
+                ✓ Mensaje enviado. Te contactamos en menos de 24 horas.
               </div>
             )}
             {sp.error && (
-              <div role="alert" className="mb-6 p-4 bg-red-50 text-red-800 border border-red-200 rounded-lg">
-                ⚠ Revisa los campos: {decodeURIComponent(sp.error)}
+              <div className="bg-red-50 border border-red-200 text-red-800 px-6 py-4 mb-8 text-center">
+                Hubo un error. Intenta nuevamente o escríbenos por WhatsApp.
               </div>
             )}
 
-            <form className="space-y-5" action="/api/contact" method="post" noValidate>
-              {/* Honeypot */}
-              <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute left-[-9999px]" />
-
-              <div className="grid sm:grid-cols-2 gap-5">
+            <form action="/api/contact" method="POST" className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="nombre" className="block text-sm font-medium text-brand-ink mb-2">
-                    Nombre <span className="text-brand-accent">*</span>
+                  <label className="block text-xs uppercase tracking-[0.2em] text-brand-muted mb-2">
+                    Nombre *
                   </label>
                   <input
-                    id="nombre"
+                    type="text"
                     name="nombre"
                     required
-                    minLength={2}
-                    maxLength={100}
+                    className="w-full border border-brand-line px-4 py-3 text-brand-ink focus:outline-none focus:border-brand-accent transition-colors"
                     placeholder="Tu nombre"
-                    className="w-full border border-brand-line px-4 py-3 bg-white rounded-md focus:outline-none focus:ring-1 focus:ring-brand-accent focus:border-brand-accent transition"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-brand-ink mb-2">
-                    Email <span className="text-brand-accent">*</span>
+                  <label className="block text-xs uppercase tracking-[0.2em] text-brand-muted mb-2">
+                    Email *
                   </label>
                   <input
-                    id="email"
-                    name="email"
                     type="email"
+                    name="email"
                     required
-                    placeholder="tu@correo.com"
-                    className="w-full border border-brand-line px-4 py-3 bg-white rounded-md focus:outline-none focus:ring-1 focus:ring-brand-accent focus:border-brand-accent transition"
+                    className="w-full border border-brand-line px-4 py-3 text-brand-ink focus:outline-none focus:border-brand-accent transition-colors"
+                    placeholder="tu@email.com"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="telefono" className="block text-sm font-medium text-brand-ink mb-2">
+                <label className="block text-xs uppercase tracking-[0.2em] text-brand-muted mb-2">
                   Teléfono
                 </label>
                 <input
-                  id="telefono"
-                  name="telefono"
                   type="tel"
-                  placeholder="+56 9 1234 5678"
-                  className="w-full border border-brand-line px-4 py-3 bg-white rounded-md focus:outline-none focus:ring-1 focus:ring-brand-accent focus:border-brand-accent transition"
+                  name="telefono"
+                  className="w-full border border-brand-line px-4 py-3 text-brand-ink focus:outline-none focus:border-brand-accent transition-colors"
+                  placeholder="+56 9 XXXX XXXX"
                 />
               </div>
 
               <div>
-                <label htmlFor="motivo" className="block text-sm font-medium text-brand-ink mb-2">
-                  Motivo de contacto
+                <label className="block text-xs uppercase tracking-[0.2em] text-brand-muted mb-2">
+                  Tipo de consulta
                 </label>
                 <select
-                  id="motivo"
-                  name="motivo"
-                  defaultValue="reserva"
-                  className="w-full border border-brand-line px-4 py-3 bg-white rounded-md focus:outline-none focus:ring-1 focus:ring-brand-accent focus:border-brand-accent transition"
+                  name="tipo"
+                  className="w-full border border-brand-line px-4 py-3 text-brand-ink focus:outline-none focus:border-brand-accent transition-colors bg-white"
                 >
-                  <option value="reserva">Reserva / disponibilidad</option>
-                  <option value="temporada">Arriendo por temporada</option>
-                  <option value="mensual">Arriendo mensual</option>
-                  <option value="largo">Arriendo largo plazo</option>
-                  <option value="evento">Evento privado / La Casita</option>
+                  <option value="">Selecciona una opción</option>
+                  <option value="estadía">Reserva estadía</option>
+                  <option value="day-pass">Day pass / Ven por el día</option>
+                  <option value="programa">Programa terapéutico</option>
+                  <option value="grupo">Evento o grupo</option>
                   <option value="otro">Otra consulta</option>
                 </select>
               </div>
 
               <div>
-                <label htmlFor="mensaje" className="block text-sm font-medium text-brand-ink mb-2">
-                  Mensaje <span className="text-brand-accent">*</span>
+                <label className="block text-xs uppercase tracking-[0.2em] text-brand-muted mb-2">
+                  Mensaje *
                 </label>
                 <textarea
-                  id="mensaje"
                   name="mensaje"
                   required
-                  minLength={10}
-                  maxLength={2000}
-                  rows={6}
-                  placeholder="Cuéntanos en qué podemos ayudarte..."
-                  className="w-full border border-brand-line px-4 py-3 bg-white rounded-md focus:outline-none focus:ring-1 focus:ring-brand-accent focus:border-brand-accent transition resize-none"
+                  rows={5}
+                  className="w-full border border-brand-line px-4 py-3 text-brand-ink focus:outline-none focus:border-brand-accent transition-colors resize-none"
+                  placeholder="Cuéntanos qué necesitas: fechas, número de personas, consultas especiales..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="px-10 py-4 bg-brand-accent text-white rounded-lg font-semibold hover:bg-brand-accent/90 transition-colors"
+                className="w-full py-4 bg-brand-accent text-white font-medium text-sm uppercase tracking-widest hover:bg-brand-accent/90 transition-colors"
               >
                 Enviar mensaje
               </button>
 
-              <p className="text-xs text-brand-muted">
-                Al enviar este formulario aceptas nuestras{" "}
-                <a href="/politicas-de-privacidad" className="underline hover:text-brand-accent">
-                  políticas de privacidad
-                </a>
-                .
+              <p className="text-xs text-brand-muted text-center">
+                Respondemos todas las consultas dentro de las próximas 24 horas hábiles.
               </p>
             </form>
           </div>
-
-          {/* Info column - 1/3 */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="font-serif text-2xl font-light mb-6">
-                Información de contacto
-              </h3>
-
-              <div className="space-y-5">
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-brand-muted mb-1">Dirección</p>
-                  <p className="text-brand-ink">
-                    Santa Blanca 550<br />
-                    Lo Barnechea, Santiago<br />
-                    Región Metropolitana, Chile
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-brand-muted mb-1">Email</p>
-                  <a
-                    href="mailto:contacto@puebloladehesa.com"
-                    className="text-brand-ink hover:text-brand-accent transition"
-                  >
-                    contacto@puebloladehesa.com
-                  </a>
-                </div>
-
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-brand-muted mb-1">WhatsApp</p>
-                  <a
-                    href={`https://wa.me/${wa}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition"
-                  >
-                    💬 +56 9 8404 6200
-                  </a>
-                </div>
-
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-brand-muted mb-1">Reservas</p>
-                  <a
-                    href={process.env.NEXT_PUBLIC_BOOKING_URL || "https://puebloladehesa.book2dream.com/"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-brand-ink hover:text-brand-accent transition underline"
-                  >
-                    Cotizar online →
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-6 border-t border-brand-line">
-              <p className="text-xs uppercase tracking-widest text-brand-muted mb-3">Horario de atención</p>
-              <p className="text-sm text-brand-muted">Lunes a Viernes</p>
-              <p className="text-brand-ink">9:00 - 19:00 hrs</p>
-              <p className="text-sm text-brand-muted mt-3">Sábados</p>
-              <p className="text-brand-ink">10:00 - 14:00 hrs</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Trust bar */}
-      <section className="bg-brand-soft py-16">
-        <div className="max-w-5xl mx-auto px-6">
-          <ul className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <li>
-              <p className="text-xs uppercase tracking-widest text-brand-muted mb-2">Reserva</p>
-              <p className="font-serif text-base text-brand-ink">Por semanas o meses</p>
-            </li>
-            <li>
-              <p className="text-xs uppercase tracking-widest text-brand-muted mb-2">Entorno</p>
-              <p className="font-serif text-base text-brand-ink">Barrio seguro</p>
-            </li>
-            <li>
-              <p className="text-xs uppercase tracking-widest text-brand-muted mb-2">Vista</p>
-              <p className="font-serif text-base text-brand-ink">Cordillera</p>
-            </li>
-            <li>
-              <p className="text-xs uppercase tracking-widest text-brand-muted mb-2">Calidad</p>
-              <p className="font-serif text-base text-brand-ink">Aire limpio</p>
-            </li>
-          </ul>
         </div>
       </section>
     </>

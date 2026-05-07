@@ -9,7 +9,7 @@ export default function HeroSection() {
         src={HERO_IMG}
         alt="Termas Puyehue"
         className="absolute inset-0 w-full h-full object-cover"
-        priority
+        loading="eager"
       />
       <div className="absolute inset-0 bg-black/25" />
       <div className="relative h-full flex items-end pb-12 px-6">

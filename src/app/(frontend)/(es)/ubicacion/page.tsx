@@ -1,195 +1,178 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Link from "next/link";
 
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Ubicación | Pueblo La Dehesa",
-  description: "Pueblo La Dehesa: cerca de todo, en un entorno de silencio. Ubicado en un sector residencial de La Dehesa con excelente conectividad y entorno natural privilegiado.",
+  title: "Cómo Llegar | Hotel Termas de Puyehue",
+  description: "Hotel Termas de Puyehue ubicado en Ruta 215, km 76, Parque Nacional Puyehue, Región de Los Lagos. A 76 km de Osorno, accesible en auto, bus y avión.",
+  keywords: "cómo llegar Hotel Termas Puyehue, ubicación, dirección, desde Osorno, Parque Nacional Puyehue",
   alternates: { canonical: "/ubicacion" },
   openGraph: {
-    title: "Ubicación | Pueblo La Dehesa",
-    description: "33.367° S, 70.530° O — En el corazón del valle de La Dehesa",
+    title: "Cómo Llegar | Hotel Termas de Puyehue",
+    description: "A 76 km de Osorno, en el corazón del Parque Nacional Puyehue.",
     type: "website",
     locale: "es_CL",
-    url: "/ubicacion",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Pueblo La Dehesa — Ubicación" }]
+    url: "https://puyehue.cl/ubicacion",
   },
-  twitter: { card: "summary_large_image", images: ["/og-image.jpg"] }
 };
 
-const NEARBY_PLACES = [
+const COMO_LLEGAR = [
   {
-    title: "Acceso Costanera Norte",
-    description: "Conectividad rápida con el resto de Santiago",
-    icon: "🛣️",
-    time: "5 min"
+    icono: "🚗",
+    titulo: "En auto",
+    pasos: [
+      "Desde Osorno, tomar Ruta 215 (dirección Puyehue)",
+      "Continuar ~76 km hacia el este",
+      "Seguir señalética hacia Hotel Termas de Puyehue",
+      "El viaje dura aproximadamente 1 hora desde Osorno",
+    ],
   },
   {
-    title: "Centros comerciales y restaurantes",
-    description: "El Golf, Nueva Las Condes",
-    icon: "🛍️",
-    time: "10 min"
+    icono: "✈️",
+    titulo: "En avión",
+    pasos: [
+      "Volar a Aeropuerto de Osorno (OZA) o Puerto Montt (PMC)",
+      "Desde Osorno: 1 hora en auto (76 km)",
+      "Desde Puerto Montt: 2 horas en auto (~130 km)",
+      "Coordinamos traslado privado previa reserva",
+    ],
   },
   {
-    title: "Barrios de oficinas",
-    description: "El Golf, Nueva Las Condes",
-    icon: "🏢",
-    time: "10 min"
+    icono: "🚌",
+    titulo: "En bus",
+    pasos: [
+      "Buses desde Osorno hacia Aguas Calientes o Entre Lagos",
+      "Bajarse en el desvío hacia Hotel Termas de Puyehue",
+      "Servicio regular en temporada alta",
+      "Consultar horarios con anterioridad",
+    ],
   },
-  {
-    title: "Colegios",
-    description: "Newland, Santiago College, Nido de Águilas",
-    icon: "🎓",
-    time: "3 a 10 min"
-  },
-  {
-    title: "Parques y Cerros",
-    description: "Cerro Manquehue, Manquehuito, El Durazno",
-    icon: "⛰️",
-    time: "5 min"
-  },
-  {
-    title: "Plazas y pumtrack",
-    description: "Espacios para deporte y recreación",
-    icon: "🌳",
-    time: "5 min"
-  },
-  {
-    title: "Centros de esquí",
-    description: "Valle Nevado, La Parva, El Colorado",
-    icon: "⛷️",
-    time: "1.5 hrs"
-  },
-  {
-    title: "Helipuerto cercano",
-    description: "Experiencias en helicóptero para nuestros huéspedes",
-    icon: "🚁",
-    time: "4 min"
-  }
+];
+
+const DISTANCIAS = [
+  { origen: "Osorno", distancia: "76 km", tiempo: "~1 hora" },
+  { origen: "Puerto Montt", distancia: "130 km", tiempo: "~2 horas" },
+  { origen: "Valdivia", distancia: "200 km", tiempo: "~2.5 horas" },
+  { origen: "Santiago", distancia: "870 km", tiempo: "Vuelo + traslado" },
 ];
 
 export default function Ubicacion() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[500px] overflow-hidden -mt-20 lg:-mt-24">
-        <Image
-          src="https://puebloladehesa.cl/cdn/shop/files/07A1915.jpg"
-          alt="Ubicación Pueblo La Dehesa"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
+      {/* HERO */}
+      <section className="relative h-[55vh] min-h-[420px] overflow-hidden -mt-20 lg:-mt-24">
+        <img
+          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&h=900&fit=crop"
+          alt="Parque Nacional Puyehue — paisaje"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
-        <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-6">
-          <p className="text-sm uppercase tracking-[0.3em] mb-4 opacity-90">
-            33.367° S, 70.530° O
-          </p>
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-light tracking-tight">
-            Ubicación
-          </h1>
-          <p className="mt-6 text-lg md:text-xl max-w-2xl opacity-95 font-light">
-            En el corazón del valle de La Dehesa
-          </p>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+        <div className="relative h-full flex items-end pb-16 lg:pb-24 px-6">
+          <div className="max-w-7xl mx-auto w-full">
+            <p className="text-xs uppercase tracking-[0.3em] text-white/70 mb-4">Cómo llegar</p>
+            <h1 className="font-serif text-5xl md:text-6xl text-white font-light leading-tight">
+              Parque Nacional Puyehue,<br />Región de Los Lagos
+            </h1>
+          </div>
         </div>
       </section>
 
-      {/* Intro */}
-      <section className="max-w-4xl mx-auto px-6 py-24 text-center">
-        <h2 className="font-serif text-4xl md:text-5xl font-light mb-8">
-          Cerca de todo, en un entorno de silencio
-        </h2>
-        <p className="text-lg text-brand-muted leading-relaxed mb-6">
-          Pueblo La Dehesa está ubicado en un sector residencial de La Dehesa,
-          con excelente conectividad y un entorno natural privilegiado.
-        </p>
-        <p className="text-lg text-brand-muted leading-relaxed">
-          Su ubicación permite estar cerca de los principales accesos, servicios
-          y equipamientos del sector, sin renunciar al silencio, las vistas
-          y la sensación de vivir rodeado de naturaleza.
-        </p>
-      </section>
-
-      {/* Map and Address */}
-      <section className="max-w-6xl mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h3 className="font-serif text-3xl font-light mb-6">Cómo Llegar</h3>
-
-            <div className="space-y-6">
-              <div>
-                <h4 className="font-semibold text-brand-ink mb-2">Dirección</h4>
-                <p className="text-brand-muted">
-                  Pueblo La Dehesa, La Dehesa, Santiago, Región Metropolitana, Chile
-                </p>
-              </div>
-
-              <div>
-                <h4 className="font-semibold text-brand-ink mb-2">Coordenadas</h4>
-                <p className="text-brand-muted font-mono text-sm">
-                  33.367° S, 70.530° O
-                </p>
-              </div>
-
-              <div>
-                <h4 className="font-semibold text-brand-ink mb-2">Desde el centro de Santiago</h4>
-                <p className="text-brand-muted">
-                  25-30 minutos en auto vía Costanera Norte. Un oasis de tranquilidad a solo minutos de la ciudad.
-                </p>
-              </div>
-
-              <div className="pt-6 border-t border-brand-line">
-                <a
-                  href="https://maps.google.com/?q=Pueblo+La+Dehesa+Santiago"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-brand-accent text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-accent/90 transition-colors"
-                >
-                  Abrir en Google Maps →
+      {/* DIRECCIÓN */}
+      <section className="py-16 bg-brand-soft">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div className="p-8">
+              <div className="text-3xl mb-3">📍</div>
+              <h3 className="font-serif text-lg font-light text-brand-ink mb-2">Dirección</h3>
+              <p className="text-brand-muted text-sm leading-relaxed">
+                Ruta 215, km 76<br />Parque Nacional Puyehue<br />Región de Los Lagos, Chile
+              </p>
+            </div>
+            <div className="p-8 border-x border-brand-line">
+              <div className="text-3xl mb-3">🗺️</div>
+              <h3 className="font-serif text-lg font-light text-brand-ink mb-2">Coordenadas</h3>
+              <p className="text-brand-muted text-sm leading-relaxed">
+                40°35′42″ S<br />72°10′24″ O
+              </p>
+            </div>
+            <div className="p-8">
+              <div className="text-3xl mb-3">📞</div>
+              <h3 className="font-serif text-lg font-light text-brand-ink mb-2">Teléfono</h3>
+              <p className="text-brand-muted text-sm leading-relaxed">
+                +56 64 2 331 400<br />
+                <a href="mailto:reservas@puyehue.cl" className="text-brand-accent hover:underline">
+                  reservas@puyehue.cl
                 </a>
-              </div>
+              </p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="relative h-[500px] rounded-lg overflow-hidden bg-brand-soft">
-            <iframe
-              src="https://maps.google.com/maps?q=Santa+Blanca+550+Lo+Barnechea+Santiago&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="absolute inset-0"
-              title="Mapa Pueblo La Dehesa"
-            />
+      {/* MAPA */}
+      <section className="py-0">
+        <div className="w-full h-[450px] bg-brand-soft relative overflow-hidden">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12234.567!2d-72.17!3d-40.595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961b3b90f7c8f8b5%3A0x1234567890abcdef!2sHotel%20Termas%20de%20Puyehue!5e0!3m2!1ses!2scl!4v1234567890"
+            width="100%"
+            height="450"
+            style={{ border: 0, filter: "grayscale(20%)" }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Mapa Hotel Termas de Puyehue"
+          />
+        </div>
+      </section>
+
+      {/* CÓMO LLEGAR */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <p className="text-xs uppercase tracking-[0.3em] text-brand-accent mb-3">Accesos</p>
+            <h2 className="font-serif text-4xl md:text-5xl font-light text-brand-ink">
+              Cómo llegar
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {COMO_LLEGAR.map((opcion) => (
+              <div key={opcion.titulo} className="border border-brand-line p-8">
+                <div className="text-4xl mb-4">{opcion.icono}</div>
+                <h3 className="font-serif text-xl font-light text-brand-ink mb-6">{opcion.titulo}</h3>
+                <ol className="space-y-3">
+                  {opcion.pasos.map((paso, i) => (
+                    <li key={i} className="flex items-start gap-3 text-sm text-brand-muted leading-relaxed">
+                      <span className="text-brand-accent font-medium shrink-0">{i + 1}.</span>
+                      <span>{paso}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Nearby Places Grid */}
-      <section className="bg-brand-soft py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl md:text-5xl font-light mb-4">
-              Qué Encontrarás Cerca
+      {/* DISTANCIAS */}
+      <section className="py-24 bg-brand-soft">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <p className="text-xs uppercase tracking-[0.3em] text-brand-accent mb-3">Referencia</p>
+            <h2 className="font-serif text-4xl font-light text-brand-ink">
+              Distancias desde ciudades
             </h2>
-            <p className="text-lg text-brand-muted max-w-2xl mx-auto">
-              Conectividad, naturaleza y servicios al alcance de tu estadía
-            </p>
           </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {NEARBY_PLACES.map((place) => (
-              <div key={place.title} className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-4xl mb-4">{place.icon}</div>
-                <h3 className="font-semibold text-brand-ink mb-2">{place.title}</h3>
-                <p className="text-sm text-brand-muted mb-3">{place.description}</p>
-                <p className="text-xs font-semibold text-brand-accent uppercase tracking-wider">
-                  {place.time}
-                </p>
+          <div className="border border-brand-line bg-white">
+            {DISTANCIAS.map((d, i) => (
+              <div
+                key={d.origen}
+                className={`grid grid-cols-3 p-5 items-center ${i < DISTANCIAS.length - 1 ? "border-b border-brand-line" : ""}`}
+              >
+                <span className="font-serif text-lg text-brand-ink">{d.origen}</span>
+                <span className="text-brand-muted text-center text-sm">{d.distancia}</span>
+                <span className="text-brand-accent text-right text-sm font-medium">{d.tiempo}</span>
               </div>
             ))}
           </div>
@@ -197,21 +180,30 @@ export default function Ubicacion() {
       </section>
 
       {/* CTA */}
-      <section className="max-w-3xl mx-auto px-6 py-24 text-center">
-        <h3 className="font-serif text-3xl md:text-4xl font-light mb-6">
-          Visítanos en Pueblo La Dehesa
-        </h3>
-        <p className="text-lg text-brand-muted mb-8">
-          Reserva tu estadía y descubre por qué este lugar es único
-        </p>
-        <a
-          href={process.env.NEXT_PUBLIC_BOOKING_URL || "https://puebloladehesa.book2dream.com/"}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-brand-accent text-white px-8 py-3 rounded-lg font-semibold hover:bg-brand-accent/90 transition-colors"
-        >
-          Reservar Ahora
-        </a>
+      <section className="py-24 bg-brand-ink text-white">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <p className="text-xs uppercase tracking-[0.3em] text-brand-accent mb-4">¿Listo para venir?</p>
+          <h2 className="font-serif text-4xl md:text-5xl font-light leading-tight mb-6">
+            Te esperamos en el parque
+          </h2>
+          <p className="text-white/80 text-lg mb-10">
+            Reserva tu estadía o visita diaria con anticipación. En temporada alta los cupos se agotan rápido.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/contacto"
+              className="inline-flex items-center justify-center px-10 py-4 bg-brand-accent text-white font-medium text-sm uppercase tracking-widest hover:bg-brand-accent/90 transition-colors"
+            >
+              Reservar ahora
+            </Link>
+            <Link
+              href="/ven-por-el-dia"
+              className="inline-flex items-center justify-center px-10 py-4 border border-white/30 text-white font-medium text-sm uppercase tracking-widest hover:bg-white/10 transition-colors"
+            >
+              Ven por el día
+            </Link>
+          </div>
+        </div>
       </section>
     </>
   );

@@ -1,21 +1,23 @@
+import Image from "next/image";
+
 const PROGRAMAS = [
   {
     title: "Programa Detox",
     duration: "3 días / 2 noches",
     desc: "Desintoxicación con baños termales, masajes y alimentación saludable.",
-    img: "https://images.unsplash.com/photo-1544161515-81aae3ff8b47?w=600&h=400&fit=crop"
+    img: "https://images.unsplash.com/photo-1544161515-81aae3ff8b47?w=1200&h=800&fit=crop&q=80&fm=webp"
   },
   {
     title: "Programa Anti-Stress",
     duration: "4 días / 3 noches",
     desc: "Relajación profunda con tratamientos exclusivos y meditación.",
-    img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&h=400&fit=crop"
+    img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&h=800&fit=crop&q=80&fm=webp"
   },
   {
     title: "Programa Bienestar",
     duration: "5 días / 4 noches",
     desc: "Programa integral con yoga, spa, gastronomía wellness y termas.",
-    img: "https://images.unsplash.com/photo-1559814047-e1c5cf4f9bb9?w=600&h=400&fit=crop"
+    img: "https://images.unsplash.com/photo-1559814047-e1c5cf4f9bb9?w=1200&h=800&fit=crop&q=80&fm=webp"
   }
 ];
 
@@ -36,11 +38,13 @@ export default function ProgramasSection() {
               className="group border border-brand-line hover:border-brand-accent transition-colors p-8"
             >
               <div className="relative aspect-[4/3] overflow-hidden mb-6">
-                <img
+                <Image
                   src={p.img}
                   alt={p.title}
+                  fill
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={75}
                 />
               </div>
               <p className="text-xs uppercase tracking-[0.2em] text-brand-accent font-medium mb-3">

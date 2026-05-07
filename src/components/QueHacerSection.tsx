@@ -1,8 +1,10 @@
+import Image from "next/image";
+
 const QUE_HACER = [
-  { tag: "Termas", title: "Circuito Termal Exterior", img: "https://images.unsplash.com/photo-1544161515-81aae3ff8b47?w=400&h=500&fit=crop" },
-  { tag: "Spa", title: "Masajes Terapéuticos", img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&h=500&fit=crop" },
-  { tag: "Naturaleza", title: "Senderismo en el Parque", img: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=400&h=500&fit=crop" },
-  { tag: "Gastronomía", title: "Restaurante Los Maitenes", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=500&fit=crop" }
+  { tag: "Termas", title: "Circuito Termal Exterior", img: "https://images.unsplash.com/photo-1544161515-81aae3ff8b47?w=800&h=1000&fit=crop&q=80&fm=webp" },
+  { tag: "Spa", title: "Masajes Terapéuticos", img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=1000&fit=crop&q=80&fm=webp" },
+  { tag: "Naturaleza", title: "Senderismo en el Parque", img: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&h=1000&fit=crop&q=80&fm=webp" },
+  { tag: "Gastronomía", title: "Restaurante Los Maitenes", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=1000&fit=crop&q=80&fm=webp" }
 ];
 
 export default function QueHacerSection() {
@@ -19,11 +21,13 @@ export default function QueHacerSection() {
           {QUE_HACER.map((item, i) => (
             <div key={i} className="group cursor-pointer">
               <div className="relative aspect-[3/4] overflow-hidden mb-4">
-                <img
+                <Image
                   src={item.img}
                   alt={item.title}
+                  fill
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  quality={75}
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>

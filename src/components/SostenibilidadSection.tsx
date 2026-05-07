@@ -1,14 +1,18 @@
+import Image from "next/image";
+
 export default function SostenibilidadSection() {
   return (
     <section className="py-24 bg-brand-soft">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative aspect-[4/5] overflow-hidden order-2 lg:order-1">
-            <img
-              src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=1000&fit=crop"
+            <Image
+              src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1600&h=2000&fit=crop&q=80&fm=webp"
               alt="Sostenibilidad"
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="lazy"
+              fill
+              className="w-full h-full object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              quality={75}
             />
           </div>
           <div className="order-1 lg:order-2">

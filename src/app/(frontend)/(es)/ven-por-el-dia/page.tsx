@@ -169,10 +169,10 @@ export default function VenPorElDia() {
                 </ul>
                 <Link
                   href="#reservar"
-                  className={`block text-center py-3 px-6 font-medium text-sm uppercase tracking-widest transition-colors ${
+                  className={`block text-center py-3 px-8 font-medium text-sm uppercase tracking-widest transition-colors ${
                     plan.destacado
-                      ? "bg-brand-orange text-white hover:bg-brand-orange/90"
-                      : "bg-brand-ink text-white hover:bg-brand-accent"
+                      ? "bg-brand-orange text-white hover:bg-brand-orange-dark"
+                      : "bg-brand-accent text-white hover:bg-brand-accent/80"
                   }`}
                 >
                   Reservar

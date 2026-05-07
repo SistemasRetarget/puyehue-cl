@@ -1,95 +1,50 @@
 import { MetadataRoute } from "next";
-import { listHouses } from "@/lib/content";
+
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://puyehue.cl";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://puebloladehesa.cl";
-
-  // Static pages
-  const staticPages: MetadataRoute.Sitemap = [
+  return [
     {
-      url: baseUrl,
+      url: BASE_URL,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 1.0
+      priority: 1.0,
     },
     {
-      url: `${baseUrl}/casas`,
+      url: `${BASE_URL}/experiencias`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/ven-por-el-dia`,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 0.9
+      priority: 0.9,
     },
     {
-      url: `${baseUrl}/experiencias`,
+      url: `${BASE_URL}/nosotros`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.7
+      priority: 0.7,
     },
     {
-      url: `${baseUrl}/nosotros`,
+      url: `${BASE_URL}/ubicacion`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.7
+      priority: 0.7,
     },
     {
-      url: `${baseUrl}/contacto`,
+      url: `${BASE_URL}/contacto`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.8
-    },
-    // English pages
-    {
-      url: `${baseUrl}/en`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1.0
+      priority: 0.8,
     },
     {
-      url: `${baseUrl}/en/houses`,
+      url: `${BASE_URL}/legal`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9
+      changeFrequency: "yearly",
+      priority: 0.3,
     },
-    {
-      url: `${baseUrl}/en/experiences`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7
-    },
-    {
-      url: `${baseUrl}/en/about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7
-    },
-    {
-      url: `${baseUrl}/en/contact`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8
-    }
   ];
-
-  // Dynamic house pages (Spanish)
-  const esHouses = listHouses("es").map((house) => {
-    const slug = house.path.split("/").pop() || "";
-    return {
-      url: `${baseUrl}/casas/${slug}`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 0.8
-    };
-  });
-
-  // Dynamic house pages (English)
-  const enHouses = listHouses("en").map((house) => {
-    const slug = house.path.split("/").pop() || "";
-    return {
-      url: `${baseUrl}/en/houses/${slug}`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 0.8
-    };
-  });
-
-  return [...staticPages, ...esHouses, ...enHouses];
 }

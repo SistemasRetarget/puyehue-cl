@@ -1,24 +1,26 @@
+import Image from "next/image";
+
 const PROMOCIONES = [
   {
     title: "Escapada Termal",
     subtitle: "2 noches desde",
     price: "$450.000",
     desc: "Alojamiento + desayuno + acceso ilimitado a piscinas termales.",
-    img: "https://images.unsplash.com/photo-1544161515-81aae3ff8b47?w=600&h=400&fit=crop"
+    img: "https://images.unsplash.com/photo-1544161515-81aae3ff8b47?w=1200&h=800&fit=crop&q=80&fm=webp"
   },
   {
     title: "Wellness Premium",
     subtitle: "3 noches desde",
     price: "$680.000",
     desc: "Pensión completa + spa + masaje + circuito termal.",
-    img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&h=400&fit=crop"
+    img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&h=800&fit=crop&q=80&fm=webp"
   },
   {
     title: "Familia Puyehue",
     subtitle: "2 noches desde",
     price: "$520.000",
     desc: "Alojamiento + desayuno + actividades infantiles + termas.",
-    img: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600&h=400&fit=crop"
+    img: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1200&h=800&fit=crop&q=80&fm=webp"
   }
 ];
 
@@ -36,11 +38,13 @@ export default function PromcionesSection() {
           {PROMOCIONES.map((p, i) => (
             <div key={i} className="group">
               <div className="relative aspect-[3/2] overflow-hidden mb-6">
-                <img
+                <Image
                   src={p.img}
                   alt={p.title}
+                  fill
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={75}
                 />
               </div>
               <h3 className="font-serif text-2xl font-light text-brand-ink mb-2">{p.title}</h3>

@@ -42,7 +42,7 @@ export default function Home() {
       {/* QUOTE PARALLAX */}
       <section className="relative h-[60vh] min-h-[400px] overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1600&h=900&fit=crop"
+          src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=2400&h=1350&fit=crop&q=80&fm=webp"
           alt="Termas Puyehue"
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
